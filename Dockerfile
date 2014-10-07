@@ -19,9 +19,8 @@ RUN mkdir -p /var/log/nginx
 
 # setup the correct nginx.conf 
 RUN useradd nginx
-ADD nginx.conf /etc/nginx/
+# ADD nginx.conf /etc/nginx/
 
 # run nginx in the foreground
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 
-EXPOSE 80
