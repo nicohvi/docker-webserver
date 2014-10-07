@@ -14,8 +14,8 @@ RUN chmod +x /etc/init.d/nginx
 RUN mkdir -p /var/log/nginx
 
 # add the directory housing our ruby app
-RUN mkdir -p /var/www/nplol/public
-ADD index.html /var/www/nplol/public/
+# RUN mkdir -p /var/www/nplol/public
+# ADD index.html /var/www/nplol/public/
 
 # setup the correct nginx.conf 
 RUN useradd nginx
@@ -25,5 +25,3 @@ ADD nginx.conf /etc/nginx/
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 
 EXPOSE 80
-
-ENTRYPOINT sudo /etc/init.d/nginx start
