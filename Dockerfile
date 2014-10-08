@@ -1,5 +1,7 @@
 FROM nicohvi/rails
 
+RUN useradd nginx
+
 # install passenger
 RUN  gem install passenger 
 
@@ -12,6 +14,7 @@ RUN chmod +x /etc/init.d/nginx
 
 # add default nginx.conf
 ADD nginx.conf /etc/nginx/nginx.conf
+RUN chown -R ngin:nginx /etc/nginx/* 
 
 # add the log directory
 RUN mkdir -p /var/log/nginx
@@ -25,7 +28,6 @@ EXPOSE 80
 VOLUME ["/var/log/", "/etc/nginx"]
 
 # add nginx user
-RUN useradd nginx
 
 # and run the sever
 # CMD sudo /etc/init.d/nginx start
