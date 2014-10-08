@@ -25,9 +25,5 @@ ADD index.html /var/www/
 
 # expose port 80 and the necessary volumes
 EXPOSE 80
-
 VOLUME ["/var/log"]
-
-# and run the sever
-# CMD sudo /etc/init.d/nginx start
 
