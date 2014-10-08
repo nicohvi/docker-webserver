@@ -24,6 +24,9 @@ ADD index.html /var/www/
 EXPOSE 80
 VOLUME ["/var/log/", "/etc/nginx"]
 
-# setup the correct nginx.conf 
+# add nginx user
 RUN useradd nginx
+
+# and run the sever
+CMD sudo /etc/init.d/nginx start
 
