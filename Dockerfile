@@ -14,7 +14,7 @@ RUN chmod +x /etc/init.d/nginx
 
 # add default nginx.conf
 ADD nginx.conf /etc/nginx/nginx.conf
-RUN chown -R ngin:nginx /etc/nginx/* 
+RUN chown -R nginx:nginx /etc/nginx/* 
 
 # add the log directory
 RUN mkdir -p /var/log/nginx
