@@ -10,12 +10,20 @@ RUN /bin/bash -l -c 'passenger-install-nginx-module --auto-download --auto --pre
 ADD nginx.sh /etc/init.d/nginx
 RUN chmod +x /etc/init.d/nginx
 
+# add default nginx.conf
+ADD nginx.conf /etc/nginx/nginx.conf
+
 # add the log directory
 RUN mkdir -p /var/log/nginx
 
+# make default web folder
+RUN mkdir -p /var/www
+ADD index.html /var/www/
+
+# expose port 80 and the necessary volumes
+EXPOSE 80
+VOLUME ["/var/log/", "/etc/nginx"]
+
 # setup the correct nginx.conf 
 RUN useradd nginx
-
-# run nginx in the foreground
-RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 
