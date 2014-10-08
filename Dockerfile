@@ -28,5 +28,5 @@ VOLUME ["/var/log/", "/etc/nginx"]
 RUN useradd nginx
 
 # and run the sever
-CMD sudo /etc/init.d/nginx start
+# CMD sudo /etc/init.d/nginx start
 
